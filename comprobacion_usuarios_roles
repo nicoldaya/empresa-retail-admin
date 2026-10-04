@@ -1,0 +1,411 @@
+fup@fup-VirtualBox:~$ mysql -u ana_crm -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 36
+Server version: 8.0.46-0ubuntu0.24.04.4 (Ubuntu)
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select*from cliente;
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| performance_schema |
++--------------------+
+2 rows in set (0,07 sec)
+
+mysql> use `empresa-retail-db`;
+ERROR 1044 (42000): Access denied for user 'ana_crm'@'localhost' to database 'empresa-retail-db'
+mysql> set role 'ana';
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> use `empresa-retail-db`;
+Database changed
+mysql> select * from cliente;
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+| cli_id_cliente | cli_nombre               | cli_apellido | cli_correo                 | cli_telefono | cli_ciudad    | cli_fecha_registro |
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+|              1 | Carlos                   | Mendoza      | carlos.mendoza12@email.com | 3101234567   | Bogotá        | 2026-01-15         |
+|              2 | María                    | Gómez        | maria.gomez@email.com      | 3159876543   | Medellín      | 2026-02-01         |
+|              3 | Juan                     | Rodríguez    | juan.rodriguez@email.com   | 3204567890   | Cali          | 2026-09-18         |
+|              4 | Nicol                    | Anacona      | NicolAnacona@email.com     | 3123456789   | Popayan       | 2026-09-05         |
+|              5 | Luis                     | Fernández    | luis.fernandez@email.com   | 3187654321   | Cartagena     | 2026-09-12         |
+|              6 | Roberto                  | SÃ¡nchez     | roberto.s@ganadero.com     | 3157778899   | PopayÃ¡n      | 2026-01-20         |
+|              7 | Elena                    | Restrepo     | elena_agro@hacienda.co     | 3104445566   | MedellÃ­n     | 2026-02-05         |
+|              8 | Marco                    | Tulio        | marcot@veterinaria.net     | 3002223344   | Cali          | 2026-02-18         |
+|              9 | Patricia                 | Duarte       | p.duarte@finca.com         | 3128889900   | Buga          | 2026-03-01         |
+|             10 | GanaderÃ­a San JosÃ©     | LTDA         | gerencia@sanjose.com       | 6015554433   | BogotÃ¡       | 2026-03-05         |
+|             11 | AndrÃ©s                  | GarcÃ­a      | andres.garcia@ganado.co    | 3109988771   | MonterÃ­a     | 2026-01-05         |
+|             12 | Marta                    | LucÃ­a       | mlucia@hacienda.com        | 3152233445   | Pereira       | 2026-01-12         |
+|             13 | Javier                   | HernÃ¡ndez   | j.hernandez@finca.net      | 3201122334   | Villavicencio | 2026-01-18         |
+|             14 | Isabel                   | CastaÃ±o     | isabel.c@agro.com          | 3115566778   | Manizales     | 2026-01-22         |
+|             15 | Ricardo                  | PÃ©rez       | ricardo.p@lecheria.co      | 3189900112   | SonsÃ³n       | 2026-01-28         |
+|             16 | SofÃ­a                   | RamÃ­rez     | sofia_r@export.com         | 3143344556   | Barranquilla  | 2026-02-01         |
+|             17 | Fernando                 | Torres       | f.torres@carne.net         | 3006677889   | Bucaramanga   | 2026-02-03         |
+|             18 | Gloria                   | Valencia     | gvalencia@campo.org        | 3124455667   | Armenia       | 2026-02-07         |
+|             19 | Diego                    | MejÃ­a       | diego.mejia@progan.co      | 3178899001   | Sincelejo     | 2026-02-10         |
+|             20 | Adriana                  | Orozco       | a.orozco@tierras.com       | 3102233445   | Espinal       | 2026-02-14         |
+|             21 | Luis                     | Bernal       | lbernal@veterinaria.co     | 3156677889   | Duitama       | 2026-02-16         |
+|             22 | Paola                    | GuzmÃ¡n      | paola.g@feria.net          | 3113344556   | Pasto         | 2026-02-20         |
+|             23 | Oscar                    | MuÃ±oz       | omunoz@agroz.com           | 3215566778   | TuluÃ¡        | 2026-02-22         |
+|             24 | Beatriz                  | LÃ³pez       | b.lopez@pasto.co           | 3139900112   | Yopal         | 2026-02-25         |
+|             25 | Gabriel                  | Ruiz         | gruiz@ganaderia.co         | 3162233445   | Florencia     | 2026-02-28         |
+|             26 | Camila                   | Vargas       | cvargas@bio.com            | 3196677889   | Neiva         | 2026-03-02         |
+|             27 | HÃ©ctor                  | Salazar      | hsalazar@campo.net         | 3103344556   | FusagasugÃ¡   | 2026-03-04         |
+|             28 | Tatiana                  | SuÃ¡rez      | t.suarez@semillas.co       | 3155566778   | IbaguÃ©       | 2026-03-06         |
+|             29 | Juan                     | Quintero     | jquintero@fincas.com       | 3128899001   | Cartago       | 2026-03-08         |
+|             30 | MÃ³nica                  | RÃ­os        | mrios@agronegocios.co      | 3142233445   | Valledupar    | 2026-03-09         |
+|             31 | nicolas                  | lopez        | nicolas12                  | 3849u357     | colombia      | 2025-12-03         |
+|             32 | jualian                  | lopez        | ndhhdwe8                   | 39484ru      | colombia      | 2026-01-16         |
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+32 rows in set (0,03 sec)
+
+mysql> select * from campania;
+ERROR 1142 (42000): SELECT command denied to user 'ana_crm'@'localhost' for table 'campania'
+mysql> select*from interaccion;
++--------------------+------------+------------+--------------------------+------------------------+
+| int_id_interaccion | int_tipo   | int_fecha  | campania_cam_id_campania | cliente_cli_id_cliente |
++--------------------+------------+------------+--------------------------+------------------------+
+|                174 | clic       | 2026-01-25 |                       35 |                      1 |
+|                175 | comentario | 2026-02-10 |                       40 |                      2 |
+|                176 | descarga   | 2026-02-20 |                       54 |                      3 |
+|                177 | visita     | 2026-03-02 |                       47 |                      4 |
+|                178 | clic       | 2026-04-12 |                       51 |                      6 |
+|                179 | comentario | 2026-05-15 |                       57 |                      7 |
+|                180 | descarga   | 2026-06-05 |                       38 |                      8 |
+|                181 | clic       | 2026-01-20 |                       37 |                      9 |
+|                182 | comentario | 2026-04-15 |                       52 |                     10 |
+|                183 | visita     | 2026-11-20 |                       37 |                     11 |
+|                184 | descarga   | 2026-09-12 |                       38 |                     12 |
+|                185 | clic       | 2026-08-10 |                       42 |                     13 |
+|                186 | comentario | 2026-02-15 |                       62 |                     14 |
+|                187 | descarga   | 2026-07-20 |                       45 |                     15 |
+|                188 | clic       | 2026-10-02 |                       61 |                     16 |
+|                189 | comentario | 2026-05-12 |                       38 |                     17 |
+|                190 | clic       | 2026-03-05 |                       40 |                     18 |
+|                191 | comentario | 2026-09-20 |                       43 |                     19 |
+|                192 | descarga   | 2026-12-05 |                       46 |                     20 |
+|                193 | visita     | 2026-03-15 |                       45 |                     21 |
+|                194 | clic       | 2026-06-25 |                       59 |                     22 |
+|                195 | descarga   | 2026-08-05 |                       56 |                     23 |
+|                196 | comentario | 2026-01-28 |                       51 |                     24 |
+|                197 | clic       | 2026-09-15 |                       45 |                     25 |
++--------------------+------------+------------+--------------------------+------------------------+
+24 rows in set (0,05 sec)
+
+mysql> select*from canal;
+ERROR 1142 (42000): SELECT command denied to user 'ana_crm'@'localhost' for table 'canal'
+mysql> INSERT INTO empresa-retail-db.cliente (id_cliente, nombre, email) 
+    -> VALUES (60, 'Cliente Prueba', 'prueba@email.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-retail-db.cliente (id_cliente, nombre, email) 
+VALUES (60, 'Cliente Prueba', 'p' at line 1
+mysql> INSERT INTO empresa-retail-db.cliente (id_cliente, nombre, email)  VALUES (1, 'Cliente Prueba', 'prueba@email.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-retail-db.cliente (id_cliente, nombre, email)  VALUES (1, 'Cliente Prueba', 'pr' amysql> INSERT INTO cliente (cli_nombre, cli_apellido, cli_correo, cli_telefono, cli_ciudad, cli_fecha_registro) 
+    -> VALUES ('Laura', 'Gómez', 'laura.gomez@email.com', '3001234567', 'Popayán', CURDATE()) Prueba', 'prueba@email.com');
+    -> ^C
+mysql> INSERT INTO cliente (cli_nombre, cli_apellido, cli_correo, cli_telefono, cli_ciudad, cli_fecha_registro) 
+    -> VALUES ('Laura', 'Gómez', 'laura.gomez@email.com', '3001234567', 'Popayán', CURDATE());
+Query OK, 1 row affected (0,07 sec)
+
+mysql> exit
+Bye
+fup@fup-VirtualBox:~$ mysql -u pedro_mkt -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 37
+Server version: 8.0.46-0ubuntu0.24.04.4 (Ubuntu)
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use `empresa-retail-db`;
+Database changed
+mysql> select*from cliente;
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+| cli_id_cliente | cli_nombre               | cli_apellido | cli_correo                 | cli_telefono | cli_ciudad    | cli_fecha_registro |
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+|              1 | Carlos                   | Mendoza      | carlos.mendoza12@email.com | 3101234567   | Bogotá        | 2026-01-15         |
+|              2 | María                    | Gómez        | maria.gomez@email.com      | 3159876543   | Medellín      | 2026-02-01         |
+|              3 | Juan                     | Rodríguez    | juan.rodriguez@email.com   | 3204567890   | Cali          | 2026-09-18         |
+|              4 | Nicol                    | Anacona      | NicolAnacona@email.com     | 3123456789   | Popayan       | 2026-09-05         |
+|              5 | Luis                     | Fernández    | luis.fernandez@email.com   | 3187654321   | Cartagena     | 2026-09-12         |
+|              6 | Roberto                  | SÃ¡nchez     | roberto.s@ganadero.com     | 3157778899   | PopayÃ¡n      | 2026-01-20         |
+|              7 | Elena                    | Restrepo     | elena_agro@hacienda.co     | 3104445566   | MedellÃ­n     | 2026-02-05         |
+|              8 | Marco                    | Tulio        | marcot@veterinaria.net     | 3002223344   | Cali          | 2026-02-18         |
+|              9 | Patricia                 | Duarte       | p.duarte@finca.com         | 3128889900   | Buga          | 2026-03-01         |
+|             10 | GanaderÃ­a San JosÃ©     | LTDA         | gerencia@sanjose.com       | 6015554433   | BogotÃ¡       | 2026-03-05         |
+|             11 | AndrÃ©s                  | GarcÃ­a      | andres.garcia@ganado.co    | 3109988771   | MonterÃ­a     | 2026-01-05         |
+|             12 | Marta                    | LucÃ­a       | mlucia@hacienda.com        | 3152233445   | Pereira       | 2026-01-12         |
+|             13 | Javier                   | HernÃ¡ndez   | j.hernandez@finca.net      | 3201122334   | Villavicencio | 2026-01-18         |
+|             14 | Isabel                   | CastaÃ±o     | isabel.c@agro.com          | 3115566778   | Manizales     | 2026-01-22         |
+|             15 | Ricardo                  | PÃ©rez       | ricardo.p@lecheria.co      | 3189900112   | SonsÃ³n       | 2026-01-28         |
+|             16 | SofÃ­a                   | RamÃ­rez     | sofia_r@export.com         | 3143344556   | Barranquilla  | 2026-02-01         |
+|             17 | Fernando                 | Torres       | f.torres@carne.net         | 3006677889   | Bucaramanga   | 2026-02-03         |
+|             18 | Gloria                   | Valencia     | gvalencia@campo.org        | 3124455667   | Armenia       | 2026-02-07         |
+|             19 | Diego                    | MejÃ­a       | diego.mejia@progan.co      | 3178899001   | Sincelejo     | 2026-02-10         |
+|             20 | Adriana                  | Orozco       | a.orozco@tierras.com       | 3102233445   | Espinal       | 2026-02-14         |
+|             21 | Luis                     | Bernal       | lbernal@veterinaria.co     | 3156677889   | Duitama       | 2026-02-16         |
+|             22 | Paola                    | GuzmÃ¡n      | paola.g@feria.net          | 3113344556   | Pasto         | 2026-02-20         |
+|             23 | Oscar                    | MuÃ±oz       | omunoz@agroz.com           | 3215566778   | TuluÃ¡        | 2026-02-22         |
+|             24 | Beatriz                  | LÃ³pez       | b.lopez@pasto.co           | 3139900112   | Yopal         | 2026-02-25         |
+|             25 | Gabriel                  | Ruiz         | gruiz@ganaderia.co         | 3162233445   | Florencia     | 2026-02-28         |
+|             26 | Camila                   | Vargas       | cvargas@bio.com            | 3196677889   | Neiva         | 2026-03-02         |
+|             27 | HÃ©ctor                  | Salazar      | hsalazar@campo.net         | 3103344556   | FusagasugÃ¡   | 2026-03-04         |
+|             28 | Tatiana                  | SuÃ¡rez      | t.suarez@semillas.co       | 3155566778   | IbaguÃ©       | 2026-03-06         |
+|             29 | Juan                     | Quintero     | jquintero@fincas.com       | 3128899001   | Cartago       | 2026-03-08         |
+|             30 | MÃ³nica                  | RÃ­os        | mrios@agronegocios.co      | 3142233445   | Valledupar    | 2026-03-09         |
+|             31 | nicolas                  | lopez        | nicolas12                  | 3849u357     | colombia      | 2025-12-03         |
+|             32 | jualian                  | lopez        | ndhhdwe8                   | 39484ru      | colombia      | 2026-01-16         |
+|             33 | Laura                    | Gómez        | laura.gomez@email.com      | 3001234567   | Popayán       | 2026-10-03         |
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+33 rows in set (0,01 sec)
+
+mysql> insert into cliente(cli_nombre,cli_apellido.cli_correo) values ('prueba','pedro',,'pedro@test@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','pedro@test@gmail.com')' at line 1
+mysql> insert into cliente(cli_nombre,cli_apellido.cli_correo) values ('prueba','pedro','pedro@test@gmail.com');
+ERROR 1142 (42000): INSERT command denied to user 'pedro_mkt'@'localhost' for table 'cliente'
+mysql> insert into cliente(cli_nombre,cli_apellido.cli_correo) values ('prueba','pedro','pedro@test@gmail.com');
+[1]+  Detenido                mysql -u pedro_mkt -p
+fup@fup-VirtualBox:~$ mysql -u pedro_mkt -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 38
+Server version: 8.0.46-0ubuntu0.24.04.4 (Ubuntu)
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select*from canal;
+ERROR 1046 (3D000): No database selected
+mysql> use `empresa-retail-db`;
+Database changed
+mysql> select*from canal;
++--------------+-------------------+------------+
+| can_id_canal | can_nombre        | can_tipo   |
++--------------+-------------------+------------+
+|            3 | Gmail             | Email      |
+|            4 | Facebook          | Red Social |
+|            5 | Instagram         | Red Social |
+|            6 | Google            | Buscador   |
+|            7 | Outlook           | Email      |
+|            8 | Facebook Ads      | Red Social |
+|            9 | WhatsApp Business | Buscador   |
+|           10 | Email Marketing   | Email      |
+|           11 | Valla             | Buscador   |
+|           12 | nicol             | Red Social |
++--------------+-------------------+------------+
+10 rows in set (0,03 sec)
+
+mysql> select*from campania;
++-----------------+-----------------------------------------+-----------------+------------------+-----------------+--------------------+
+| cam_id_campania | cam_nombre                              | cam_presupuesto | cam_fecha_inicio | cam_fecha_final | canal_can_id_canal |
++-----------------+-----------------------------------------+-----------------+------------------+-----------------+--------------------+
+|              35 | Remate de Novillos 2026                 |          250000 | 2026-01-15       | 2026-02-15      |                  3 |
+|              36 | PromociÃ³n InseminaciÃ³n Artificial     |         1200000 | 2026-02-01       | 2026-03-30      |                  6 |
+|              37 | BoletÃ­n TÃ©cnico Agro                  |          450000 | 2026-01-01       | 2026-12-31      |                  3 |
+|              38 | Lanzamiento Potrero Sur                 |          800000 | 2026-03-01       | 2026-04-15      |                  4 |
+|              39 | Subasta Elite Cauca                     |          450000 | 2026-04-10       | 2026-04-20      |                  5 |
+|              40 | Plan VacunaciÃ³n Aftosa Ciclo I         |          300000 | 2026-05-01       | 2026-06-15      |                  3 |
+|              41 | Descuento Fertilizantes Mayo            |          120000 | 2026-05-10       | 2026-05-30      |                  4 |
+|              42 | Seminario GanaderÃ­a Sostenible         |          850000 | 2026-06-05       | 2026-06-06      |                  6 |
+|              43 | Promo InseminaciÃ³n Holstein            |         2100000 | 2026-06-15       | 2026-07-15      |                  3 |
+|              44 | Venta Terneros de Levante               |         3500000 | 2026-07-01       | 2026-08-01      |                  4 |
+|              45 | DÃ­a de Campo - Hacienda La Paz         |           60000 | 2026-07-20       | 2026-07-21      |                  5 |
+|              46 | Oferta Silo de MaÃ­z Premium            |          180000 | 2026-08-05       | 2026-09-05      |                  5 |
+|              47 | Equipos de OrdeÃ±o Alfa                 |         5000000 | 2026-08-15       | 2026-09-30      |                  3 |
+|              48 | GenÃ©tica Angus de ExportaciÃ³n         |          750000 | 2026-09-01       | 2026-10-15      |                  4 |
+|              49 | Cursos Manejo de Pasturas               |          400000 | 2026-09-10       | 2026-09-25      |                  3 |
+|              50 | Gran Remate de Estrellas                |         1000000 | 2026-10-01       | 2026-10-10      |                  4 |
+|              51 | ExpoCebÃº 2026 - Stand Principal        |          650000 | 2026-11-15       | 2026-11-25      |                  6 |
+|              52 | Alimento Balanceado Invierno            |          280000 | 2026-11-01       | 2026-12-15      |                  5 |
+|              53 | Software de GestiÃ³n Agro 360           |          150000 | 2026-01-10       | 2026-03-10      |                  3 |
+|              54 | CrÃ©ditos LÃ­nea Blanca Agro            |          900000 | 2026-02-15       | 2026-04-15      |                  4 |
+|              55 | Taurinas de Media MontaÃ±a              |          320000 | 2026-03-20       | 2026-05-20      |                  4 |
+|              56 | Sal Mineralizada Plus                   |          110000 | 2026-04-01       | 2026-04-30      |                  6 |
+|              57 | Ruedas de Negocio Regional              |          200000 | 2026-05-15       | 2026-05-17      |                  3 |
+|              58 | Festival del Queso y Leche              |          130000 | 2026-06-10       | 2026-06-12      |                  3 |
+|              59 | Trazabilidad Animal 360                 |          700000 | 2026-07-15       | 2026-08-15      |                  5 |
+|              60 | Implementos para Cerca ElÃ©ctrica       |         2400000 | 2026-08-20       | 2026-09-20      |                  4 |
+|              61 | Subasta Online Novillas                 |         4800000 | 2026-09-15       | 2026-09-16      |                  5 |
+|              62 | RenovaciÃ³n de Praderas                 |          160000 | 2026-10-10       | 2026-11-10      |                  3 |
+|              63 | Gran Cierre de AÃ±o Ganadero            |          900000 | 2026-12-01       | 2026-12-31      |                  3 |
++-----------------+-----------------------------------------+-----------------+------------------+-----------------+--------------------+
+29 rows in set (0,01 sec)
+
+mysql> exit
+Bye
+fup@fup-VirtualBox:~$ mysql -u marta_auditoria -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'marta_auditoria'@'localhost' (using password: YES)
+fup@fup-VirtualBox:~$ mysql -u marta_auditoria -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'marta_auditoria'@'localhost' (using password: YES)
+fup@fup-VirtualBox:~$ mysql -u marta_auditoria -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'marta_auditoria'@'localhost' (using password: YES)
+fup@fup-VirtualBox:~$ mysql -u marta_auditoria -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 42
+Server version: 8.0.46-0ubuntu0.24.04.4 (Ubuntu)
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use `empresa-retail-db`;
+Database changed
+mysql> select*from conversion;
++-------------------+-------------+-----------+------------+------------------------+
+| con_id_conversion | con_tipo    | con_valor | con_fecha  | cliente_cli_id_cliente |
++-------------------+-------------+-----------+------------+------------------------+
+|                 1 | compra      |       121 | 2026-01-20 |                      1 |
+|                 2 | suscripcion |        30 | 2026-02-05 |                      2 |
+|                 3 | registro    |         0 | 2026-09-18 |                      3 |
+|                 4 | compra      |       450 | 2026-09-10 |                      4 |
+|                 5 | suscripcion |        15 | 2026-09-13 |                      5 |
+|                 6 | compra      |   1550000 | 2026-02-12 |                      1 |
+|                 7 | registro    |    120000 | 2026-02-25 |                      2 |
+|                 8 | suscripcion |     35000 | 2026-03-05 |                      5 |
+|                 9 | registro    |   1250000 | 2026-04-18 |                      6 |
+|                10 | compra      |    240000 | 2026-05-20 |                      7 |
+|                11 | suscripcion |    150000 | 2026-06-05 |                      8 |
+|                12 | suscripcion |     45000 | 2026-03-10 |                     18 |
+|                13 | compra      |    320000 | 2026-02-25 |                     14 |
+|                14 | registro    |    890000 | 2026-07-28 |                     15 |
+|                15 | compra      |   1570000 | 2026-10-15 |                     16 |
+|                16 | compra      |    580000 | 2026-09-25 |                     19 |
+|                17 | compra      |    110000 | 2026-08-15 |                     13 |
+|                18 | suscripcion |    120000 | 2026-01-25 |                      9 |
++-------------------+-------------+-----------+------------+------------------------+
+18 rows in set (0,04 sec)
+
+mysql> insert into conversion (con_id_conversion) values (1);
+ERROR 1142 (42000): INSERT command denied to user 'marta_auditoria'@'localhost' for table 'conversion'
+mysql> select*from cliente;
+ERROR 1142 (42000): SELECT command denied to user 'marta_auditoria'@'localhost' for table 'cliente'
+mysql> call sp_reporte_auditoria();
+ERROR 1305 (42000): PROCEDURE empresa-retail-db.sp_reporte_auditoria does not exist
+mysql> show procedure status where Db = 'empresa-retail-db';
++-------------------+---------------------------------------+-----------+-------------------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| Db                | Name                                  | Type      | Definer                 | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++-------------------+---------------------------------------+-----------+-------------------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| empresa-retail-db | spSelectCampania                      | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:14:09 | 2026-09-26 11:14:09 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | spSelectCanal                         | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:07:35 | 2026-09-26 11:07:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | spSelectCliente                       | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:12:13 | 2026-09-26 11:12:13 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | spSelectConversion                    | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:22:42 | 2026-09-26 11:22:42 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | spSelectInteraccion                   | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:16:38 | 2026-09-26 11:16:38 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_actualizar_dominio_correo          | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:17:30 | 2026-09-27 15:17:30 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_count_canal                        | PROCEDURE | nicol_anacona@localhost | 2026-09-26 13:43:37 | 2026-09-26 13:43:37 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_delete_canal                       | PROCEDURE | nicol_anacona@localhost | 2026-09-26 13:35:45 | 2026-09-26 13:35:45 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_formatear_nombre_cliente           | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:30:39 | 2026-09-27 15:30:39 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_insert_campania                    | PROCEDURE | nicol_anacona@localhost | 2026-09-26 13:18:45 | 2026-09-26 13:18:45 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_insert_canal                       | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:56:48 | 2026-09-26 11:56:48 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_insert_cliente                     | PROCEDURE | nicol_anacona@localhost | 2026-09-26 11:52:33 | 2026-09-26 11:52:33 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_insert_conversion                  | PROCEDURE | nicol_anacona@localhost | 2026-09-26 13:30:21 | 2026-09-26 13:30:21 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_insert_interaccion                 | PROCEDURE | nicol_anacona@localhost | 2026-09-26 13:25:25 | 2026-09-26 13:25:25 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_obtener_canal_invertido            | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:18:26 | 2026-09-27 15:18:26 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_obtener_clientes_ciudad_mayusculas | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:32:12 | 2026-09-27 15:32:12 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_obtener_codigo_campania            | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:31:06 | 2026-09-27 15:31:06 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_obtener_conversion_dominio_cliente | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:28:35 | 2026-09-27 15:28:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_obtener_usuario_correo             | PROCEDURE | nicol_anacona@localhost | 2026-09-27 15:31:35 | 2026-09-27 15:31:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_right_campania                     | PROCEDURE | nicol_anacona@localhost | 2026-09-26 16:08:43 | 2026-09-26 16:08:43 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
+| empresa-retail-db | sp_Update_canal                       | PROCEDURE | nicol_anacona@localhost | 2026-09-26 13:33:56 | 2026-09-26 13:33:56 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb3_general_ci |
++-------------------+---------------------------------------+-----------+-------------------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+21 rows in set (0,11 sec)
+
+mysql> call spSelectConversion();
++-------------------+-------------+-----------+------------+------------------------+
+| con_id_conversion | con_tipo    | con_valor | con_fecha  | cliente_cli_id_cliente |
++-------------------+-------------+-----------+------------+------------------------+
+|                 1 | compra      |       121 | 2026-01-20 |                      1 |
+|                 2 | suscripcion |        30 | 2026-02-05 |                      2 |
+|                 3 | registro    |         0 | 2026-09-18 |                      3 |
+|                 4 | compra      |       450 | 2026-09-10 |                      4 |
+|                 5 | suscripcion |        15 | 2026-09-13 |                      5 |
+|                 6 | compra      |   1550000 | 2026-02-12 |                      1 |
+|                 7 | registro    |    120000 | 2026-02-25 |                      2 |
+|                 8 | suscripcion |     35000 | 2026-03-05 |                      5 |
+|                 9 | registro    |   1250000 | 2026-04-18 |                      6 |
+|                10 | compra      |    240000 | 2026-05-20 |                      7 |
+|                11 | suscripcion |    150000 | 2026-06-05 |                      8 |
+|                12 | suscripcion |     45000 | 2026-03-10 |                     18 |
+|                13 | compra      |    320000 | 2026-02-25 |                     14 |
+|                14 | registro    |    890000 | 2026-07-28 |                     15 |
+|                15 | compra      |   1570000 | 2026-10-15 |                     16 |
+|                16 | compra      |    580000 | 2026-09-25 |                     19 |
+|                17 | compra      |    110000 | 2026-08-15 |                     13 |
+|                18 | suscripcion |    120000 | 2026-01-25 |                      9 |
++-------------------+-------------+-----------+------------+------------------------+
+18 rows in set (0,04 sec)
+
+Query OK, 0 rows affected (0,04 sec)
+
+mysql> call spSelectCliente();
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+| cli_id_cliente | cli_nombre               | cli_apellido | cli_correo                 | cli_telefono | cli_ciudad    | cli_fecha_registro |
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+|              1 | Carlos                   | Mendoza      | carlos.mendoza12@email.com | 3101234567   | Bogotá        | 2026-01-15         |
+|              2 | María                    | Gómez        | maria.gomez@email.com      | 3159876543   | Medellín      | 2026-02-01         |
+|              3 | Juan                     | Rodríguez    | juan.rodriguez@email.com   | 3204567890   | Cali          | 2026-09-18         |
+|              4 | Nicol                    | Anacona      | NicolAnacona@email.com     | 3123456789   | Popayan       | 2026-09-05         |
+|              5 | Luis                     | Fernández    | luis.fernandez@email.com   | 3187654321   | Cartagena     | 2026-09-12         |
+|              6 | Roberto                  | SÃ¡nchez     | roberto.s@ganadero.com     | 3157778899   | PopayÃ¡n      | 2026-01-20         |
+|              7 | Elena                    | Restrepo     | elena_agro@hacienda.co     | 3104445566   | MedellÃ­n     | 2026-02-05         |
+|              8 | Marco                    | Tulio        | marcot@veterinaria.net     | 3002223344   | Cali          | 2026-02-18         |
+|              9 | Patricia                 | Duarte       | p.duarte@finca.com         | 3128889900   | Buga          | 2026-03-01         |
+|             10 | GanaderÃ­a San JosÃ©     | LTDA         | gerencia@sanjose.com       | 6015554433   | BogotÃ¡       | 2026-03-05         |
+|             11 | AndrÃ©s                  | GarcÃ­a      | andres.garcia@ganado.co    | 3109988771   | MonterÃ­a     | 2026-01-05         |
+|             12 | Marta                    | LucÃ­a       | mlucia@hacienda.com        | 3152233445   | Pereira       | 2026-01-12         |
+|             13 | Javier                   | HernÃ¡ndez   | j.hernandez@finca.net      | 3201122334   | Villavicencio | 2026-01-18         |
+|             14 | Isabel                   | CastaÃ±o     | isabel.c@agro.com          | 3115566778   | Manizales     | 2026-01-22         |
+|             15 | Ricardo                  | PÃ©rez       | ricardo.p@lecheria.co      | 3189900112   | SonsÃ³n       | 2026-01-28         |
+|             16 | SofÃ­a                   | RamÃ­rez     | sofia_r@export.com         | 3143344556   | Barranquilla  | 2026-02-01         |
+|             17 | Fernando                 | Torres       | f.torres@carne.net         | 3006677889   | Bucaramanga   | 2026-02-03         |
+|             18 | Gloria                   | Valencia     | gvalencia@campo.org        | 3124455667   | Armenia       | 2026-02-07         |
+|             19 | Diego                    | MejÃ­a       | diego.mejia@progan.co      | 3178899001   | Sincelejo     | 2026-02-10         |
+|             20 | Adriana                  | Orozco       | a.orozco@tierras.com       | 3102233445   | Espinal       | 2026-02-14         |
+|             21 | Luis                     | Bernal       | lbernal@veterinaria.co     | 3156677889   | Duitama       | 2026-02-16         |
+|             22 | Paola                    | GuzmÃ¡n      | paola.g@feria.net          | 3113344556   | Pasto         | 2026-02-20         |
+|             23 | Oscar                    | MuÃ±oz       | omunoz@agroz.com           | 3215566778   | TuluÃ¡        | 2026-02-22         |
+|             24 | Beatriz                  | LÃ³pez       | b.lopez@pasto.co           | 3139900112   | Yopal         | 2026-02-25         |
+|             25 | Gabriel                  | Ruiz         | gruiz@ganaderia.co         | 3162233445   | Florencia     | 2026-02-28         |
+|             26 | Camila                   | Vargas       | cvargas@bio.com            | 3196677889   | Neiva         | 2026-03-02         |
+|             27 | HÃ©ctor                  | Salazar      | hsalazar@campo.net         | 3103344556   | FusagasugÃ¡   | 2026-03-04         |
+|             28 | Tatiana                  | SuÃ¡rez      | t.suarez@semillas.co       | 3155566778   | IbaguÃ©       | 2026-03-06         |
+|             29 | Juan                     | Quintero     | jquintero@fincas.com       | 3128899001   | Cartago       | 2026-03-08         |
+|             30 | MÃ³nica                  | RÃ­os        | mrios@agronegocios.co      | 3142233445   | Valledupar    | 2026-03-09         |
+|             31 | nicolas                  | lopez        | nicolas12                  | 3849u357     | colombia      | 2025-12-03         |
+|             32 | jualian                  | lopez        | ndhhdwe8                   | 39484ru      | colombia      | 2026-01-16         |
+|             33 | Laura                    | Gómez        | laura.gomez@email.com      | 3001234567   | Popayán       | 2026-10-03         |
++----------------+--------------------------+--------------+----------------------------+--------------+---------------+--------------------+
+33 rows in set (0,01 sec)
+
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> exit
+Bye
+
